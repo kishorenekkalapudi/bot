@@ -47,9 +47,12 @@ const adapter = new SlackAdapter({
     // for use in multi-team apps
     getTokenForTeam: getTokenForTeam,
     getBotUserByTeam: getBotUserByTeam,
-    json_file_store: __dirname + '/.data/db/'
+      json_file_store: __dirname + '/.data/db/'
 
 });
+
+adapter.startTicking();
+
 
 // Use SlackEventMiddleware to emit events that match their original Slack event types.
 adapter.use(new SlackEventMiddleware());
@@ -63,7 +66,9 @@ const controller = new Botkit({
 
     adapter: adapter,
 
-    storage
+    storage,
+    json_file_store: __dirname + '/.data/db/'
+
 });
 
 if (process.env.CMS_URI) {
