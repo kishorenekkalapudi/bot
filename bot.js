@@ -51,7 +51,6 @@ const adapter = new SlackAdapter({
 
 });
 
-adapter.startTicking();
 
 
 // Use SlackEventMiddleware to emit events that match their original Slack event types.
