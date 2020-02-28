@@ -47,6 +47,8 @@ const adapter = new SlackAdapter({
     // for use in multi-team apps
     getTokenForTeam: getTokenForTeam,
     getBotUserByTeam: getBotUserByTeam,
+    json_file_store: __dirname + '/.data/db/'
+
 });
 
 // Use SlackEventMiddleware to emit events that match their original Slack event types.
